@@ -2,6 +2,7 @@ package com.fleetmatrics.adapters;
 
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,23 +38,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.name.setText(items.get(position).getOriginal_title());
-        holder.popularity.setText(String.valueOf(items.get(position).getPopularity()));
-        holder.year.setText(items.get(position).getRelease_date());
-        holder.category.setText(items.get(position).getGenresAsString());
-
-        holder.image.setImageBitmap(null);
         Picasso.with(holder.image.getContext()).load(String.format(Constants.MOVIES_IMAGE_LARGE, items.get(position).getBackdrop_path())).into(holder.image);
         holder.itemView.setTag(items.get(position));
+        holder.name.setText(items.get(position).getOriginal_title());
+        holder.popularity.setText("a " + String.valueOf(items.get(position).getPopularity()));
+        holder.year.setText("a " + items.get(position).getRelease_date());
+        holder.category.setText("a " + items.get(position).getGenresAsString());
+
+
     }
 
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    public long getItemId(int position) {
-        return items.get(position).getId();
     }
 
     @Override

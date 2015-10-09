@@ -1,7 +1,10 @@
 package com.fleetmatrics;
 
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
+
+import com.fleetmatrics.modal.Movie;
 import com.fleetmatrics.ui.activities.DetailActivity;
 
 
@@ -15,8 +18,11 @@ public class DetailActivityTest extends ActivityInstrumentationTestCase2<DetailA
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        setActivityInitialTouchMode(true);
+        Movie movie = new Movie();
+        movie.setBackdrop_path("");
+        setActivityIntent(new Intent().putExtra("com.fleetmatrics.modal.movie", movie));
         mDetailActivity = getActivity();
+
     }
 
     @Override
@@ -33,4 +39,9 @@ public class DetailActivityTest extends ActivityInstrumentationTestCase2<DetailA
     }
 
 
+    @MediumTest
+    public void testMovieImageIsNull() {
+        Movie movie = getActivity().getIntent().getParcelableExtra("com.fleetmatrics.modal.movie");
+        assertNotNull("Movie image is null", movie.getBackdrop_path());
+    }
 }

@@ -228,20 +228,75 @@ public class Movie implements Parcelable {
         return vote_count;
     }
 
+    public void setAdult(boolean adult) {
+        this.adult = adult;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
+    }
+
+    public void setGenre_ids(List<Integer> genre_ids) {
+        this.genre_ids = genre_ids;
+    }
+
+    public void setGenreAsString(String genreAsString) {
+        this.genreAsString = genreAsString;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setOriginal_language(String original_language) {
+        this.original_language = original_language;
+    }
+
+    public void setOriginal_title(String original_title) {
+        this.original_title = original_title;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public void setPopularity(double popularity) {
+        this.popularity = popularity;
+    }
+
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setVideo(boolean video) {
+        this.video = video;
+    }
+
+    public void setVote_average(int vote_average) {
+        this.vote_average = vote_average;
+    }
+
+    public void setVote_count(int vote_count) {
+        this.vote_count = vote_count;
+    }
+
     public String getGenresAsString(){
         if(genreAsString!=null)
             return genreAsString;
 
-        int index =0;
         StringBuilder sb = new StringBuilder();
-        for (int i : genre_ids){
-
-            if(index >= genre_ids.size())
-                sb.append(FleetMetricsApplication.getInstance().getGenres().get(i).getName()+", ");
-            else
-                sb.append(FleetMetricsApplication.getInstance().getGenres().get(i).getName());
-
-            index++;
+        for (int i = 0; i < genre_ids.size(); i++) {
+            sb.append(FleetMetricsApplication.getInstance().getGenres().get(genre_ids.get(i)).getName());
+            if (i < genre_ids.size() - 1)
+                sb.append(", ");
         }
 
         return sb.toString();

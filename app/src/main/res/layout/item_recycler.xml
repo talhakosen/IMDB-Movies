@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_xsmall"
         android:background="?attr/colorPrimary"
         android:paddingLeft="@dimen/spacing_large"
@@ -27,7 +27,7 @@
     <TextView
         android:id="@+id/year"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:paddingLeft="@dimen/spacing_large"
         android:paddingRight="@dimen/spacing_large"
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/category"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:paddingLeft="@dimen/spacing_large"
         android:paddingRight="@dimen/spacing_large"
